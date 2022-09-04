@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class COP2250Hw2 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        double hours = 0.0;
+        double gallons = 0.0;
+        double gph = 0.0;
+        
+        System.out.print("Enter the number of hours: ");
+        hours = input.nextDouble();
+        
+        System.out.print("Enter the number of gallons: ");
+        gallons = input.nextDouble();
+        
+        gph = gallons/hours;
+        System.out.println("The boat uses " + gph + " gallons per hour");
+        // TODO code application logic here
+    }
