@@ -1,0 +1,20 @@
+public class Elevator {
+     int currentFloor = 1;
+     
+    public void displaycurrentFloor() {
+         System.out.println(currentFloor);    
+     }
+    public void goUp() {
+        if(currentFloor < 3) {
+            ++currentFloor;
+        } else {
+            System.out.println("No Floor 4 avaliable");
+        }
+    }
+    public void goDown() {
+        if(currentFloor > 1) {
+            --currentFloor;
+        }
+    }
+    
+}
