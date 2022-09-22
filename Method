@@ -42,3 +42,30 @@ public class reversedigits {
                  System.out.println("Reverse number is " + rev);
              }
 }
+________________________________________________________
+public class reversedigits {
+    
+    public static void main(String[] args) {
+        
+        Scanner input = new Scanner (System.in);
+               System.out.println("Please enter a number:");
+               Reverse_Digits();
+               int a = input.nextInt();
+                   
+    }
+             public static void Reverse_Digits(){
+                Scanner input = new Scanner (System.in);
+                int a = input.nextInt();
+                            
+                 int rev=0;
+                 
+                 while(a!=0)
+                 
+                 {    
+            rev=rev*10 + a%10;
+            a=a /10;
+            
+                 }
+                 System.out.println("Reverse number is " + rev);
+             }
+}
