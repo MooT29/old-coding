@@ -1,0 +1,56 @@
+public class reversedigits {
+    
+    public static void main(String[] args) {
+        
+        Scanner input = new Scanner (System.in);
+         System.out.println("Please enter todays date: ");
+         
+        int month = input.nextInt();
+        int day = input.nextInt();
+        int year = input.nextInt();
+        
+        Convert_date();
+  
+        
+        System.out.println("Enter your date of birth: ");
+        
+        Convert_date2(); 
+        
+        int month2 = input.nextInt();
+        int day2 = input.nextInt();
+        int year2 = input.nextInt(); 
+        
+       
+    }        
+     public static void Convert_date(){
+         
+         Scanner input = new Scanner (System.in);
+         
+        int month = input.nextInt();
+        int day = input.nextInt();
+        int year = input.nextInt();
+         
+         int todaysdate = (year * 10000 + month * 100 + day);                            
+         
+    }    
+     
+     public static void Convert_date2() {
+         Scanner input = new Scanner (System.in); 
+         
+         int month2 = input.nextInt();
+        int day2 = input.nextInt();
+        int year2 = input.nextInt();
+         
+         int birthdate = (year2 * 10000 + month2 * 100 + day2);  
+     }
+     
+     public static void CalculateAge(int todaysdate, int birthdate) {
+     
+      int yourage = birthdate - todaysdate / 10000; 
+      
+      System.out.println("Your age is: " + yourage);
+      
+    }
+
+
+}
