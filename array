@@ -1,0 +1,26 @@
+import java.util.Scanner;
+import java.security.SecureRandom;
+
+public class diceArray {
+    
+    public static void main (String[] args)
+    { 
+          Scanner input = new Scanner(System.in);
+          SecureRandom rand = new SecureRandom(); 
+          
+          //int list[10]
+          int [] dice = new int [10];
+          
+          for (int roll = 0; roll < 100000; roll++)
+          {
+              dice[rand.nextInt(10)]++;
+          }
+    
+          System.out.println("Face   Frequency");
+          System.out.println("====   =========");
+          for (int i = 0; i < dice.length; i++)
+          {
+              System.out.printf("%2d       %7d\n", i+1, dice[i]);
+          }
+}
+}
