@@ -1,0 +1,23 @@
+// First program.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+
+using namespace std;
+
+/// <summary>
+/// a demonstration of prgramming 
+/// </summary>
+/// <returns></returns>
+int main()
+{
+    int number1, number2;
+    double answer2;
+    int answer;
+    // prompt user for desired value 
+    cout << "Please enter an integer number (1-10): "; //Prompt user first 
+    cin >> number1;
+    cout << "Please enter another integer number (1-10): "; //prompt user again
+    cin >> number2;
+    cout << endl << endl;
+    cout << "Your number are: " << number1 << " and " << number2 << endl;
