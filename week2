@@ -1,0 +1,35 @@
+/// <summary>
+/// a demonstration of prgramming 
+/// </summary>
+/// <returns></returns>
+int main()
+{
+    string Firstname, Firstname2, Firstname3;
+    char choice1, choice2, choice3;
+    int bets = 0;
+    int earnings; 
+
+    // prompt user for their name 
+    cout << "Player one please enter your first name: "; //Prompt user first 
+    cin >> Firstname;
+    cout << "Please choose between c or d: "; //prompt user again
+    cin >> choice1;
+    cout << "Player two please enter your first name: "; 
+    cin >> Firstname2;
+    cout << "Please choose between c or d: "; //prompt user again
+    cin >> choice2;
+    cout << "Player three please enter your first name: "; 
+    cin >> Firstname3;
+    cout << "Please choose between c or d: "; //prompt user again
+    cin >> choice3;
+    cout << endl << endl; 
+    cout << Firstname << ":" << choice1;
+    cout << endl << endl;
+    cout << Firstname2 << ":" << choice2;
+    cout << endl << endl;
+    cout << Firstname3 << ":" << choice3;
+    cout << endl << endl;
+        earnings = bets + 5;
+        cout << "Your current winnings are: $ " << earnings; 
+
+}
