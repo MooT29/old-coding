@@ -1,0 +1,143 @@
+char genMoveComputer() {
+    const unsigned delayinms = 867;
+    srand((unsigned)time(NULL));
+    this_thread::sleep_for(chrono::milliseconds(delayinms));
+    return (((rand() % 2) == 0) ? 'd' : 'c');
+}
+
+
+
+
+/*  *  *  *  *  *  *  *  *
+
+    call the code as a function: genMoveComputer();
+
+    and it will return a character value that is either a 'c' or a 'd'
+
+    use the value accordingly in your code
+
+ *  *  *  *  *  *  *  *  */
+
+int userwinnings = 0;
+int cpuwinnings2 = 0;
+int cpuwinnings1 = 0;
+int main()
+{
+    // Declaring Variables 
+    char userval;
+    // 2. Subroutines and functions
+    char get_char(string prompt);
+    void report(char userval, char comp1Move,char comp2Move);
+    bool charcheck(char userval); //checks if user inpuit was "c" or "d"
+    void reportselect(char userval, char comp1Move, char comp2Move); 
+    void winnerSelect(int userwinnings, int cpuwinnings1, int cpuwinnings2);
+    // main code 
+    userval = get_char("Please enter c or d");
+    if(!charcheck(userval)){
+        return true;
+    }
+
+    char comp1Move = genMoveComputer();
+    char comp2Move = genMoveComputer();
+    report(userval, comp1Move, comp2Move);
+    reportselect(userval, comp1Move,comp2Move);
+    winnerSelect(userwinnings, cpuwinnings1, cpuwinnings2);
+}
+
+
+//get_char will read the char input value by user
+char get_char(string prompt) {
+    char value;
+    cout << prompt << ": ";
+    cin >> value;
+    return value;
+}
+
+bool charcheck(char selection) {
+    if (selection == 'c' || selection == 'd') {
+        cout << "valid input" << endl; 
+        return true;
+    }
+    else {
+        cout << "ERROR: Selection not valid";
+        return false;
+    }
+}     
+void report(char userval, char comp1Move, char comp2Move) {
+    cout << "You have chosen: " << userval << endl;
+    cout << "Comp 1 has chosen: " << comp1Move << endl;
+    cout << "Comp 2 has chosen: " << comp2Move << endl;
+}
+
+void reportselect(char userval, char comp1Move, char comp2Move) {
+    // if all selections are equal...
+    if (userval == comp1Move && userval == comp2Move) {
+        // ... and the matching selection value is 'c', then...
+        if (userval == 'c') {
+            userwinnings += 7, cpuwinnings1 += 7, cpuwinnings2 += 7;
+            cout << "User Winnings: " << userwinnings << ", " << "CPU 1 Winnings: " << cpuwinnings1 << ", " << "CPU 2 Winnings: " << cpuwinnings2 << endl;
+        }
+        // ... else if the matching selection value is 'd', then ...
+        else if (userval == 'd') {
+        }
+        userwinnings += 1, cpuwinnings1 += 1, cpuwinnings2 += 1;
+        cout << "User Winnings:  " << userwinnings << ", " << "CPU 1 Winnings: " << cpuwinnings1 << ", " << "CPU 2 Winnings: " << cpuwinnings2 << endl;
+    }
+    // else if the selection values are ___
+    else if (userval == comp1Move && userval != comp2Move && comp2Move == 'd') {
+        userwinnings += 3, cpuwinnings1 += 3, cpuwinnings2 += 9;
+        cout << "User Winnings: " << userwinnings << ", " << "CPU 1 Winnings: " << cpuwinnings1 << ", " << "CPU 2 Winnings: " << cpuwinnings2 << endl;
+    }
+    else if (userval != comp1Move && userval == comp2Move && userval == 'c') {
+        userwinnings += 3, cpuwinnings1 += 9, cpuwinnings2 += 3;
+        cout << "User Winnings: " << userwinnings << ", " << "CPU 1 Winnings: " << cpuwinnings1 << ", " << "CPU 2 Winnings: " << cpuwinnings2 << endl;
+    }
+    else if (userval != comp1Move && userval != comp2Move && userval == 'c') {
+        userwinnings += 0, cpuwinnings1 += 5, cpuwinnings2 += 5;
+        cout << "User Winnings: " << userwinnings << ", " << "CPU 1 Winnings: " << cpuwinnings1 << ", " << "CPU 2 Winnings: " << cpuwinnings2 << endl;
+    }
+    else if (userval != comp1Move && userval != comp2Move && userval == 'd') {
+        userwinnings += 9, cpuwinnings1 += 3, cpuwinnings2 += 3;
+
+        cout << "User Winnings: " << userwinnings << ", " << "CPU 1 Winnings: " << cpuwinnings1 << ", " << "CPU 2 Winnings: " << cpuwinnings2 << endl;
+    }
+    else if (userval == comp1Move && userval != comp2Move && userval == 'd') {
+            userwinnings += 5, cpuwinnings1 += 5, cpuwinnings2 += 0;
+            cout << "User Winnings: " << userwinnings << ", " << "CPU 1 Winnings: " << cpuwinnings1 << ", " << "CPU 2 Winnings: " << cpuwinnings2 << endl;
+        }
+        else if (userval != comp1Move && userval == comp2Move && userval == 'd') {
+
+            userwinnings += 5, cpuwinnings2 += 5, cpuwinnings1 += 0;
+            cout << "User Winnings: " << userwinnings << ", " << "CPU 1 Winnings: " << cpuwinnings1 << ", " << "CPU 2 Winnings: " << cpuwinnings2 << endl;
+        }
+        else if (comp1Move != userval && comp2Move == comp1Move && comp1Move == 'd') {
+            cpuwinnings1 += 5, cpuwinnings2 += 5, userwinnings += 0;
+            cout << "User Winnings: " << userwinnings << ", " << "CPU 1 Winnings: " << cpuwinnings1 << ", " << "CPU 2 Winnings: " << cpuwinnings2 << endl;
+
+        }
+
+    }
+
+void winnerSelect(int userwinnings, int cpuwinnings1, int cpuwinnings2) {
+
+    if (userwinnings > cpuwinnings1 && userwinnings > cpuwinnings2) {
+        cout << "You Win!";
+    }
+    //... else if the CPU have more money
+    else if (cpuwinnings1 > userwinnings && cpuwinnings1 > cpuwinnings2) {
+        cout << "CPU 1 Wins!";
+    }
+    else if (cpuwinnings2 > userwinnings && cpuwinnings2 > cpuwinnings1) {
+        cout << "CPU 2 Wins";
+    }
+    //else if all players have the amount of money
+    else if (userwinnings == cpuwinnings1 && userwinnings == cpuwinnings2) {
+        cout << "Tie";
+    }
+    else if (userwinnings == cpuwinnings1 && userwinnings != cpuwinnings2) {
+        cout << "Tie";
+    }
+    else if (userwinnings != cpuwinnings1 && userwinnings == cpuwinnings2) {
+        cout << "Tie";
+    }
+}
